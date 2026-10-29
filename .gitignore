@@ -14,6 +14,7 @@ i18n/*.invalid
 !data/static/i18n/*.json
 /data/juiceshop.sqlite-journal
 
+
 # Build
 .nyc_output/
 .sass-cache/
@@ -71,3 +72,4 @@ config/*.yml
 # Misc
 .playwright-mcp/
 cypress/screenshots/
+encryptionkeys/jwt.priv
