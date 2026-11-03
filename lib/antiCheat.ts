@@ -195,7 +195,14 @@ function loadSourceFile (relativePath: string): string {
     return sourceFileCache.get(relativePath)!
   }
   try {
-    const content = fs.readFileSync(path.resolve(relativePath), 'utf8')
+    const baseDirectory = path.resolve('./data/anticheat-logs'); 
+    const targetPath = path.resolve(baseDirectory, relativePath);
+
+    if (!targetPath.startsWith(baseDirectory)) {
+      throw new Error('Access denied: Invalid path');
+    }
+    const content = fs.readFileSync(targetPath, 'utf8')
+
     sourceFileCache.set(relativePath, content)
     return content
   } catch {
